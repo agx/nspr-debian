@@ -1,5 +1,5 @@
 Source: nspr
-Section: devel
+Section: libs
 Priority: optional
 Maintainer: Maintainers of Mozilla-related packages <pkg-mozilla-maintainers@lists.alioth.debian.org>
 Uploaders: Mike Hommey <glandium@debian.org>
