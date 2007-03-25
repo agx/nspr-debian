@@ -1,0 +1,20 @@
+#! /bin/sh /usr/share/dpatch/dpatch-run
+## 60_nspr_m4.dpatch by Mike Hommey <glandium@debian.org>
+##
+## All lines beginning with `## DP:' are a description of the patch.
+## DP: Avoid aclocal warnings about underquoted definition of AM_PATH_NSPR
+## DP: bz#375285.
+
+@DPATCH@
+
+--- nspr/mozilla/nsprpub/config/nspr.m4
++++ nspr/mozilla/nsprpub/config/nspr.m4
+@@ -5,7 +5,7 @@
+ 
+ dnl AM_PATH_NSPR([MINIMUM-VERSION, [ACTION-IF-FOUND [, ACTION-IF-NOT-FOUND]]])
+ dnl Test for NSPR, and define NSPR_CFLAGS and NSPR_LIBS
+-AC_DEFUN(AM_PATH_NSPR,
++AC_DEFUN([AM_PATH_NSPR],
+ [dnl
+ 
+ AC_ARG_WITH(nspr-prefix,

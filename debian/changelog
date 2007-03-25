@@ -1,0 +1,5 @@
+nspr (4.6.6-1) experimental; urgency=low
+
+  * Initial release. (Closes: #416150)
+
+ -- Mike Hommey <glandium@debian.org>  Sun, 25 Mar 2007 16:32:41 +0200

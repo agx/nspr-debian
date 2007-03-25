@@ -1,0 +1,105 @@
+#!/usr/bin/make -f
+
+include /usr/share/dpatch/dpatch.make
+
+# These are used for cross-compiling and for saving the configure script
+# from having to guess our platform (since we know it already)
+DEB_HOST_GNU_TYPE   ?= $(shell dpkg-architecture -qDEB_HOST_GNU_TYPE)
+DEB_BUILD_GNU_TYPE  ?= $(shell dpkg-architecture -qDEB_BUILD_GNU_TYPE)
+DEB_BUILD_ARCH  ?= $(shell dpkg-architecture -qDEB_BUILD_ARCH)
+
+DEBIAN_VERSION := $(shell dpkg-parsechangelog | sed -n 's/^Version: *\(.*\)$$/\1/ p')
+
+CFLAGS := -Wall -pipe
+
+ifneq (,$(findstring noopt,$(DEB_BUILD_OPTIONS)))
+	OPTCFLAGS = -O0
+else
+	OPTCFLAGS = -O2 -fno-strict-aliasing
+endif
+
+OPTCFLAGS += -g
+
+ifneq (,$(findstring debug,$(DEB_BUILD_OPTIONS)))
+	DEBUGFLAGS = --enable-debug
+else
+	DEBUGFLAGS = --disable-debug
+endif
+
+configure: mozilla/nsprpub/config.status
+mozilla/nsprpub/config.status: patch-stamp mozilla/nsprpub/configure
+	dh_testdir
+
+	CFLAGS="$(CFLAGS)" \
+	LDFLAGS="-Wl,--as-needed" \
+	cd mozilla/nsprpub && \
+	./configure --host=$(DEB_HOST_GNU_TYPE) \
+                    --build=$(DEB_BUILD_GNU_TYPE) \
+                    --enable-optimize="$(OPTCFLAGS)" \
+		    --prefix=/usr \
+		    --enable-ipv6 \
+		    --with-mozilla \
+                    $(DEBUGFLAGS)
+
+build: build-stamp
+build-stamp: mozilla/nsprpub/config.status
+	dh_testdir
+
+	$(MAKE) -C mozilla/nsprpub
+
+	touch build-stamp
+
+clean: clean-patched unpatch
+clean-patched:
+	dh_testdir
+	dh_testroot
+	rm -f build-stamp install-stamp
+
+	-$(MAKE) -C mozilla/nsprpub distclean
+
+	dh_clean
+
+install: install-stamp
+install-stamp: build-stamp
+	dh_testdir
+	dh_testroot
+	dh_clean -k
+	dh_installdirs
+
+	$(MAKE) -C mozilla/nsprpub real_install DESTDIR=$(CURDIR)/debian/tmp
+
+	touch install-stamp
+
+binary-indep:
+
+binary-arch: install-stamp
+	dh_testdir
+	dh_testroot
+	dh_installchangelogs -a
+	dh_installdocs -a
+	dh_install -a --sourcedir=debian/tmp
+	dh_link -a
+	dh_strip -a --dbg-package=libnspr4-0d-dbg
+	dh_compress -a
+	dh_fixperms -a
+	dh_makeshlibs -a -V 'libnss3-0d (>= 1.8.0.10)'
+	dh_installdeb -a
+	dh_shlibdeps -a
+	dh_gencontrol -a
+	dh_md5sums -a
+	dh_builddeb -a
+
+binary: binary-arch
+
+debian/patches/99_configure.dpatch: patch-stamp
+	-[ -f "$@" ] && dpatch deapply `basename "$@"`
+	cp mozilla/nsprpub/configure mozilla/nsprpub/configure.orig
+	cd mozilla/nsprpub && autoconf
+	diff -u mozilla/nsprpub/configure.orig mozilla/nsprpub/configure | \
+	   filterdiff --remove-timestamps --addprefix=nspr/ | \
+	   dpatch patch-template -p 99_configure autoconf > $@
+	mv -f mozilla/nsprpub/configure.orig mozilla/nsprpub/configure
+	grep -q ^99_configure$$ debian/patches/00list || echo 99_configure >> debian/patches/00list
+	dpatch apply `basename "$@"`
+
+.PHONY: configure clean build install clean-patched binary-indep binary-arch binary
