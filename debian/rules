@@ -79,7 +79,7 @@ binary-arch: install-stamp
 	dh_strip -a --dbg-package=libnspr4-0d-dbg
 	dh_compress -a
 	dh_fixperms -a
-	dh_makeshlibs -a -V 'libnss3-0d (>= 1.8.0.10)'
+	dh_makeshlibs -a -V 'libnspr4-0d (>= 4.6.0)'
 	dh_installdeb -a
 	dh_shlibdeps -a
 	dh_gencontrol -a
