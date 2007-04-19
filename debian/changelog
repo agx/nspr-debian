@@ -1,7 +1,7 @@
 nspr (4.6.6-2.mt1) unstable; urgency=low
 
   * debian/rules: fix broken libnspr4-0d shlibs creation; use
-    dh_makeshlibs -a -V 'libnspr4-0d (>= 4.6.0)'.
+    dh_makeshlibs -a -V 'libnspr4-0d (>= 4.6.0)' (Closes: #420069).
 
  -- Alexander Sack <asac@debian.org>  Mon, 19 Apr 2007 20:34:00 +0200
 
