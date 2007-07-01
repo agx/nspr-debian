@@ -1,3 +1,11 @@
+nspr (4.6.7-1) unstable; urgency=low
+
+  * New upstream release, picked from NSPR_4_6_7_RTM cvs tag.
+  * debian/patches/18_kbsd_nspr.dpatch: Also add support for the Hurd.
+    Closes: #419528.
+
+ -- Mike Hommey <glandium@debian.org>  Sun, 01 Jul 2007 09:49:23 +0200
+
 nspr (4.6.6-3) unstable; urgency=low
 
   * debian/rules: replace libnss3-0d (!) with libnspr4-0d in shlib

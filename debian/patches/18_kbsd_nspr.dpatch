@@ -3,6 +3,7 @@
 ##
 ## All lines beginning with `## DP:' are a description of the patch.
 ## DP: GNU/kFreeBSD support for nspr. bz#261649, bz#355999
+## DP: Also add support for the Hurd.
 
 @DPATCH@
 
@@ -68,7 +69,7 @@
  
 --- nspr/mozilla/nsprpub/pr/include/md/_pth.h
 +++ nspr/mozilla/nsprpub/pr/include/md/_pth.h
-@@ -143,10 +143,15 @@
+@@ -143,13 +143,22 @@
  	(!memcmp(&(t), &pt_zero_tid, sizeof(pthread_t)))
  #define _PT_PTHREAD_COPY_THR_HANDLE(st, dt)   (dt) = (st)
  #elif defined(IRIX) || defined(OSF1) || defined(AIX) || defined(SOLARIS) \
@@ -79,12 +80,19 @@
  	|| defined(VMS) || defined(NTO) || defined(DARWIN) \
  	|| defined(UNIXWARE) || defined(RISCOS)
 +#ifdef __GNU__
-+/* Hurd pthreads don't have an invalid value for pthread_t. -- rmh */
-+#error Using Hurd pthreads
-+#endif
++/* Hurd pthread_ts are allocated from 0, and you just _won't_ be able to create
++ * 4G threads :) */
++#define _PT_PTHREAD_INVALIDATE_THR_HANDLE(t)  (t) = -1
++#define _PT_PTHREAD_THR_HANDLE_IS_INVALID(t)  (t) == -1
++#define _PT_PTHREAD_COPY_THR_HANDLE(st, dt)   (dt) = (st)
++#else
  #define _PT_PTHREAD_INVALIDATE_THR_HANDLE(t)  (t) = 0
  #define _PT_PTHREAD_THR_HANDLE_IS_INVALID(t)  (t) == 0
  #define _PT_PTHREAD_COPY_THR_HANDLE(st, dt)   (dt) = (st)
++#endif
+ #else 
+ #error "invalid pthread ID is not supported for this architecture"
+ #endif
 @@ -195,7 +200,8 @@
  /*
   * These platforms don't have sigtimedwait()
@@ -197,13 +205,14 @@
  
 --- nspr/mozilla/nsprpub/pr/src/md/unix/uxrng.c
 +++ nspr/mozilla/nsprpub/pr/src/md/unix/uxrng.c
-@@ -138,7 +138,8 @@
+@@ -138,7 +138,9 @@
      return 0;
  }
  
 -#elif (defined(LINUX) || defined(FREEBSD) || defined(NETBSD) || defined(OPENBSD))
 +#elif (defined(LINUX) || defined(FREEBSD) || defined(__FreeBSD_kernel__) \
-+    || defined(NETBSD) || defined(__NetBSD_kernel__) || defined(OPENBSD))
++    || defined(NETBSD) || defined(__NetBSD_kernel__) || defined(OPENBSD)) \
++    || defined(__GNU__)
  #include <sys/types.h>
  #include <sys/stat.h>
  #include <fcntl.h>
