@@ -63,7 +63,7 @@ install-stamp: build-stamp
 	dh_clean -k
 	dh_installdirs
 
-	$(MAKE) -C mozilla/nsprpub real_install DESTDIR=$(CURDIR)/debian/tmp
+	$(MAKE) -C mozilla/nsprpub install DESTDIR=$(CURDIR)/debian/tmp
 
 	touch install-stamp
 

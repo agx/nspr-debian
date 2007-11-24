@@ -6,6 +6,8 @@ nspr (4.7.0~1.9b1-1) UNRELEASED; urgency=low
     debian/patches/30_nspr_m4.dpatch: Removed, as applied upstream.
   * debian/patches/00list: Updated accordingly.
   * debian/patches/99_configure.dpatch: Updated.
+  * debian/rules, debian/patches/30_pkgconfig.dpatch: The real_install rule
+    has been replaced by install, upstream, so we now use it.
 
  -- Mike Hommey <glandium@debian.org>  Sat, 24 Nov 2007 17:36:59 +0100
 
