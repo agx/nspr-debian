@@ -1,3 +1,14 @@
+nspr (4.7.0~1.9b1-1) UNRELEASED; urgency=low
+
+  * New upstream snapshot, picked from FIREFOX_3_0b1_RELEASE cvs tag.
+  * debian/patches/81_sonames.dpatch: Updated to fit upstream changes.
+  * debian/patches/18_kbsd_nspr.dpatch,
+    debian/patches/30_nspr_m4.dpatch: Removed, as applied upstream.
+  * debian/patches/00list: Updated accordingly.
+  * debian/patches/99_configure.dpatch: Updated.
+
+ -- Mike Hommey <glandium@debian.org>  Sat, 24 Nov 2007 17:36:59 +0100
+
 nspr (4.6.7-1) unstable; urgency=low
 
   * New upstream release, picked from NSPR_4_6_7_RTM cvs tag.

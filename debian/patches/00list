@@ -1,7 +1,5 @@
-18_kbsd_nspr
 30_config_64bits
 30_pkgconfig
-30_nspr_m4
 80_config
 81_sonames
 99_configure
