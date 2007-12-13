@@ -1,3 +1,16 @@
+nspr (4.7.0~1.9b1-2) unstable; urgency=low
+
+  * debian/*.symbols.*: Remove "../../" workaround now that dh_makeshlibs
+    supports symbols files includes properly.
+  * debian/control:
+    + Build depend on debhelper (>= 5.0.62), where this happened. Remove
+      dpkg-dev versioned build-dependency, as debhelper already depends
+      on the proper one, and this dependency is obviously not going to be
+      dropped.
+    + Bumped Standards-Version to 3.7.3.0. No changes needed.
+
+ -- Mike Hommey <glandium@debian.org>  Thu, 13 Dec 2007 21:22:50 +0100
+
 nspr (4.7.0~1.9b1-1) unstable; urgency=low
 
   * New upstream snapshot, picked from FIREFOX_3_0b1_RELEASE cvs tag.
