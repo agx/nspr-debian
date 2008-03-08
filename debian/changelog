@@ -1,3 +1,15 @@
+nspr (4.7.0-2) unstable; urgency=low
+
+  * debian/libnspr4-0d.symbols.powerpc: Add new powerpc specific symbols.
+  * debian/control: Turn Homepage indications in descriptions into a
+    control field.
+  * debian/rules:
+    + Don't ignore $(MAKE) distclean errors.
+    + Bump shlibs, but only for ppc.
+  * debian/patches/38_hurd.dpatch: Fix FTBFS on Hurd. Closes: #457573.
+
+ -- Mike Hommey <glandium@debian.org>  Sat, 08 Mar 2008 08:01:47 +0100
+
 nspr (4.7.0-1) unstable; urgency=low
 
   * New upstream release.

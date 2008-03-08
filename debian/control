@@ -5,6 +5,7 @@ Maintainer: Maintainers of Mozilla-related packages <pkg-mozilla-maintainers@lis
 Uploaders: Mike Hommey <glandium@debian.org>
 Build-Depends: debhelper (>= 5.0.62), autotools-dev, dpatch
 Standards-Version: 3.7.3.0
+Homepage: http://www.mozilla.org/projects/nspr/
 
 Package: libnspr4-0d
 Section: libs
@@ -19,8 +20,6 @@ Description: NetScape Portable Runtime Library
   * interval timing and calendar time,
   * basic memory management (malloc and free),
   * shared library linking.
- .
- Homepage: http://www.mozilla.org/projects/nspr/
 
 Package: libnspr4-dev
 Section: libdevel
@@ -39,8 +38,6 @@ Description: Development files for the NetScape Portable Runtime library
  .
  Install this package if you wish to develop your own programs using the
  NetScape Portable Runtime library.
- .
- Homepage: http://www.mozilla.org/projects/nspr/
 
 Package: libnspr4-0d-dbg
 Section: libdevel
@@ -58,5 +55,3 @@ Description: Development files for the NetScape Portable Runtime library
   * shared library linking.
  .
  This package provides the debugging symbols for the library.
- .
- Homepage: http://www.mozilla.org/projects/nspr/

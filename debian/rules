@@ -52,7 +52,7 @@ clean-patched:
 	dh_testroot
 	rm -f build-stamp install-stamp
 
-	-$(MAKE) -C mozilla/nsprpub distclean
+	[ ! -f Makefile ] || $(MAKE) -C mozilla/nsprpub distclean
 
 	dh_clean
 
@@ -79,7 +79,11 @@ binary-arch: install-stamp
 	dh_strip -a --dbg-package=libnspr4-0d-dbg
 	dh_compress -a
 	dh_fixperms -a
+ifeq ($(DEB_BUILD_ARCH),ppc)
+	dh_makeshlibs -a -V 'libnspr4-0d (>= 4.7.0~beta2)'
+else
 	dh_makeshlibs -a -V 'libnspr4-0d (>= 4.7.0~1.9b1)'
+endif
 	dh_installdeb -a
 	dh_shlibdeps -a
 	dh_gencontrol -a
