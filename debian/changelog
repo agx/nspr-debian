@@ -1,3 +1,15 @@
+nspr (4.7.1-2) unstable; urgency=low
+
+  * debian/libnspr4-dev.install, debian/libnspr4-0d.install: Don't install so
+    files in the -dev package but in the library package. It will allow
+    external applications linked against upstream nspr to work on Debian with
+    system nspr libraries, and will avoid all browsers to have to implement
+    symlinks themselves to allow some external plugins to work properly.
+  * debian/control: Make libnspr4-0d conflict with older versions of
+    libnspr4-dev and libnspr4-dev need newer libnspr4-0d accordingly.
+
+ -- Mike Hommey <glandium@debian.org>  Sat, 07 Jun 2008 11:36:46 +0200
+
 nspr (4.7.1-1) unstable; urgency=low
 
   * New upstream release, picked from NSPR_4_7_1_RTM cvs tag.
