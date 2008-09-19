@@ -11,7 +11,7 @@ Package: libnspr4-0d
 Section: libs
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
-Conflicts: libnspr4-dev (<= 4.7.1-1)
+Conflicts: libnspr4-dev (<= 4.7.1-1), libnspr4
 Description: NetScape Portable Runtime Library
  This library provides platform independent non-GUI operating system
  facilities including:
