@@ -1,3 +1,9 @@
+nspr (4.7.4-1) UNRELEASED; urgency=low
+
+  * New upstream release.
+
+ -- Mike Hommey <glandium@debian.org>  Fri, 17 Apr 2009 22:56:06 +0200
+
 nspr (4.7.1-4) unstable; urgency=low
 
   * debian/patches/30_dev_urandom.dpath: Use /dev/urandom instead of
