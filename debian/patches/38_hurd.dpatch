@@ -6,12 +6,14 @@
 
 @DPATCH@
 
---- nspr/mozilla/nsprpub/pr/include/md/_pth.h.orig
-+++ nspr/mozilla/nsprpub/pr/include/md/_pth.h
+diff --git a/mozilla/nsprpub/pr/include/md/_pth.h b/mozilla/nsprpub/pr/include/md/_pth.h
+index b44fd93..c99e834 100644
+--- a/mozilla/nsprpub/pr/include/md/_pth.h
++++ b/mozilla/nsprpub/pr/include/md/_pth.h
 @@ -148,10 +148,6 @@
  	|| defined(NETBSD) || defined(OPENBSD) || defined(BSDI) \
  	|| defined(VMS) || defined(NTO) || defined(DARWIN) \
- 	|| defined(UNIXWARE) || defined(RISCOS)
+ 	|| defined(UNIXWARE) || defined(RISCOS)	|| defined(SYMBIAN)
 -#ifdef __GNU__
 -/* Hurd pthreads don't have an invalid value for pthread_t. -- rmh */
 -#error Using Hurd pthreads
@@ -19,8 +21,10 @@
  #define _PT_PTHREAD_INVALIDATE_THR_HANDLE(t)  (t) = 0
  #define _PT_PTHREAD_THR_HANDLE_IS_INVALID(t)  (t) == 0
  #define _PT_PTHREAD_COPY_THR_HANDLE(st, dt)   (dt) = (st)
---- nspr/mozilla/nsprpub/pr/include/md/_linux.cfg.orig
-+++ nspr/mozilla/nsprpub/pr/include/md/_linux.cfg
+diff --git a/mozilla/nsprpub/pr/include/md/_linux.cfg b/mozilla/nsprpub/pr/include/md/_linux.cfg
+index 1999d3c..3ea818b 100644
+--- a/mozilla/nsprpub/pr/include/md/_linux.cfg
++++ b/mozilla/nsprpub/pr/include/md/_linux.cfg
 @@ -53,6 +53,8 @@
  
  #ifdef __FreeBSD_kernel__
@@ -30,15 +34,16 @@
  #else
  #define PR_AF_INET6 10  /* same as AF_INET6 */
  #endif
---- nspr/mozilla/nsprpub/pr/src/md/unix/uxrng.c.orig
-+++ nspr/mozilla/nsprpub/pr/src/md/unix/uxrng.c
-@@ -139,7 +139,8 @@
- }
+diff --git a/mozilla/nsprpub/pr/src/md/unix/uxrng.c b/mozilla/nsprpub/pr/src/md/unix/uxrng.c
+index 86f0782..e3c59d4 100644
+--- a/mozilla/nsprpub/pr/src/md/unix/uxrng.c
++++ b/mozilla/nsprpub/pr/src/md/unix/uxrng.c
+@@ -140,7 +140,7 @@ GetHighResClock(void *buf, size_t maxbytes)
  
  #elif (defined(LINUX) || defined(FREEBSD) || defined(__FreeBSD_kernel__) \
--    || defined(NETBSD) || defined(__NetBSD_kernel__) || defined(OPENBSD))
-+    || defined(NETBSD) || defined(__NetBSD_kernel__) || defined(OPENBSD) \
-+    || defined(__GNU__))
+     || defined(NETBSD) || defined(__NetBSD_kernel__) || defined(OPENBSD) \
+-    || defined(SYMBIAN))
++    || defined(SYMBIAN) || defined(__GNU__))
  #include <sys/types.h>
  #include <sys/stat.h>
  #include <fcntl.h>
