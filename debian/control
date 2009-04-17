@@ -41,7 +41,7 @@ Description: Development files for the NetScape Portable Runtime library
  NetScape Portable Runtime library.
 
 Package: libnspr4-0d-dbg
-Section: libdevel
+Section: debug
 Priority: extra
 Architecture: any
 Depends: libnspr4-0d (= ${binary:Version})
