@@ -1,4 +1,4 @@
-nspr (4.7.4-1) UNRELEASED; urgency=low
+nspr (4.7.4-1) unstable; urgency=low
 
   * New upstream release.
   * debian/patches/30_dev_urandom.dpatch: Drop, as applied upstream.
@@ -17,7 +17,7 @@ nspr (4.7.4-1) UNRELEASED; urgency=low
   * debian/patches/30_reinit.dpatch: Apply patch from bz#485318 to allow
     proper reinitialization of the library. Closes: #520689.
 
- -- Mike Hommey <glandium@debian.org>  Fri, 17 Apr 2009 22:56:06 +0200
+ -- Mike Hommey <glandium@debian.org>  Sat, 18 Apr 2009 01:28:48 +0200
 
 nspr (4.7.1-4) unstable; urgency=low
 
