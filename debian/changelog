@@ -9,6 +9,9 @@ nspr (4.7.4-1) UNRELEASED; urgency=low
   * debian/control:
     + Bumped Standards-Version to 3.8.1.0. No changes needed.
     + Put the libnspr4-0d-dbg package in the "debug" section.
+    + Build-depend on proper version of debhelper for dh_lintian.
+  * debian/*.lintian-overrides, debian/rules: Install some Lintian
+    overrides with dh_lintian.
 
  -- Mike Hommey <glandium@debian.org>  Fri, 17 Apr 2009 22:56:06 +0200
 

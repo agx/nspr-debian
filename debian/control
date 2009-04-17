@@ -3,7 +3,7 @@ Section: libs
 Priority: optional
 Maintainer: Maintainers of Mozilla-related packages <pkg-mozilla-maintainers@lists.alioth.debian.org>
 Uploaders: Mike Hommey <glandium@debian.org>
-Build-Depends: debhelper (>= 5.0.62), autotools-dev, dpatch
+Build-Depends: debhelper (>= 6.0.7~), autotools-dev, dpatch
 Standards-Version: 3.8.1.0
 Homepage: http://www.mozilla.org/projects/nspr/
 
