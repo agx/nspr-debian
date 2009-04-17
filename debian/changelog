@@ -5,6 +5,7 @@ nspr (4.7.4-1) UNRELEASED; urgency=low
   * debian/patches/00list: Updated accordingly.
   * debian/patches/38_hurd.dpatch, debian/patches/81_sonames.dpatch,
     debian/patches/99_configure.dpatch: Adapted to upstream changes.
+  * debian/rules: Force dpkg-gensymbols to fail when symbols are missing.
 
  -- Mike Hommey <glandium@debian.org>  Fri, 17 Apr 2009 22:56:06 +0200
 

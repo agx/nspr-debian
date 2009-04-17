@@ -80,9 +80,9 @@ binary-arch: install-stamp
 	dh_compress -a
 	dh_fixperms -a
 ifeq ($(DEB_BUILD_ARCH),ppc)
-	dh_makeshlibs -a -V 'libnspr4-0d (>= 4.7.0~beta2)'
+	dh_makeshlibs -a -V 'libnspr4-0d (>= 4.7.0~beta2)' -- -c4
 else
-	dh_makeshlibs -a -V 'libnspr4-0d (>= 4.7.0~1.9b1)'
+	dh_makeshlibs -a -V 'libnspr4-0d (>= 4.7.0~1.9b1)' -- -c4
 endif
 	dh_installdeb -a
 	dh_shlibdeps -a
