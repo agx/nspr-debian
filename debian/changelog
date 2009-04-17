@@ -14,6 +14,8 @@ nspr (4.7.4-1) UNRELEASED; urgency=low
     + Build-depend on proper version of debhelper for dh_lintian.
   * debian/*.lintian-overrides, debian/rules: Install some Lintian
     overrides with dh_lintian.
+  * debian/patches/30_reinit.dpatch: Apply patch from bz#485318 to allow
+    proper reinitialization of the library. Closes: #520689.
 
  -- Mike Hommey <glandium@debian.org>  Fri, 17 Apr 2009 22:56:06 +0200
 

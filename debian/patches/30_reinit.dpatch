@@ -1,0 +1,29 @@
+#! /bin/sh /usr/share/dpatch/dpatch-run
+## 30_reinit.dpatch by  <glandium@debian.org>
+##
+## All lines beginning with `## DP:' are a description of the patch.
+## DP: Apply patch from bz#485318 to allow proper reinitialization of the 
+## DP: library
+
+@DPATCH@
+
+diff --git a/mozilla/nsprpub/pr/src/io/prlog.c b/mozilla/nsprpub/pr/src/io/prlog.c
+index 7443406..5847808 100644
+--- a/mozilla/nsprpub/pr/src/io/prlog.c
++++ b/mozilla/nsprpub/pr/src/io/prlog.c
+@@ -286,14 +286,13 @@ void _PR_LogCleanup(void)
+ #endif
+         ) {
+         fclose(logFile);
+-        logFile = NULL;
+     }
+ #else
+     if (logFile && logFile != _pr_stdout && logFile != _pr_stderr) {
+         PR_Close(logFile);
+-        logFile = NULL;
+     }
+ #endif
++    logFile = NULL;
+ 
+     if (logBuf)
+         PR_DELETE(logBuf);
