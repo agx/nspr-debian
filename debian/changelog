@@ -1,6 +1,8 @@
 nspr (4.7.4-1) UNRELEASED; urgency=low
 
   * New upstream release.
+  * debian/patches/30_dev_urandom.dpatch: Drop, as applied upstream.
+  * debian/patches/00list: Updated accordingly.
 
  -- Mike Hommey <glandium@debian.org>  Fri, 17 Apr 2009 22:56:06 +0200
 
