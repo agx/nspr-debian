@@ -1,3 +1,10 @@
+nspr (4.7.4-2) unstable; urgency=low
+
+  * debian/libnspr4-0d.symbols.hurd_i386: Renamed to
+    debian/libnspr4-0d.symbols.hurd-i386. Closes: #524580.
+
+ -- Mike Hommey <glandium@debian.org>  Sat, 18 Apr 2009 22:24:46 +0200
+
 nspr (4.7.4-1) unstable; urgency=low
 
   * New upstream release.
