@@ -2,7 +2,7 @@
 ## 30_reinit.dpatch by  <glandium@debian.org>
 ##
 ## All lines beginning with `## DP:' are a description of the patch.
-## DP: Apply patch from bz#485318 to allow proper reinitialization of the 
+## DP: Apply patches from bz#485318 to allow proper reinitialization of the
 ## DP: library
 
 @DPATCH@
@@ -27,3 +27,34 @@ index 7443406..5847808 100644
  
      if (logBuf)
          PR_DELETE(logBuf);
+diff --git a/mozilla/nsprpub/pr/src/misc/prinit.c b/mozilla/nsprpub/pr/src/misc/prinit.c
+index dc4ca98..4d289b8 100644
+--- a/mozilla/nsprpub/pr/src/misc/prinit.c
++++ b/mozilla/nsprpub/pr/src/misc/prinit.c
+@@ -402,6 +402,11 @@ PR_IMPLEMENT(PRStatus) PR_Cleanup()
+         while (_pr_userActive > _pr_primordialExitCount) {
+             PR_WaitCondVar(_pr_primordialExitCVar, PR_INTERVAL_NO_TIMEOUT);
+         }
++        if (me->flags & _PR_SYSTEM) {
++            _pr_systemActive--;
++        } else {
++            _pr_userActive--;
++        }
+         PR_Unlock(_pr_activeLock);
+ 
+ #ifdef IRIX
+diff --git a/mozilla/nsprpub/pr/src/pthreads/ptthread.c b/mozilla/nsprpub/pr/src/pthreads/ptthread.c
+index d97c364..d88a91a 100644
+--- a/mozilla/nsprpub/pr/src/pthreads/ptthread.c
++++ b/mozilla/nsprpub/pr/src/pthreads/ptthread.c
+@@ -1033,6 +1033,10 @@ PR_IMPLEMENT(PRStatus) PR_Cleanup(void)
+         PR_Lock(pt_book.ml);
+         while (pt_book.user > pt_book.this_many)
+             PR_WaitCondVar(pt_book.cv, PR_INTERVAL_NO_TIMEOUT);
++        if (me->state & PT_THREAD_SYSTEM)
++            pt_book.system -= 1;
++        else
++            pt_book.user -= 1;
+         PR_Unlock(pt_book.ml);
+ 
+         _PR_CleanupMW();
