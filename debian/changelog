@@ -1,3 +1,10 @@
+nspr (4.7.4-3) UNRELEASED; urgency=low
+
+  * debian/libnspr4-0d.symbols.kfreebsd*: Add symbols files for kfreebsd
+    i386 and amd64. Closes: #528781.
+
+ -- Mike Hommey <glandium@debian.org>  Wed, 20 May 2009 08:29:31 +0200
+
 nspr (4.7.4-2) unstable; urgency=low
 
   * debian/libnspr4-0d.symbols.hurd_i386: Renamed to
