@@ -1,4 +1,4 @@
-nspr (4.7.4-3) UNRELEASED; urgency=low
+nspr (4.7.4-3) unstable; urgency=low
 
   * debian/libnspr4-0d.symbols.kfreebsd*: Add symbols files for kfreebsd
     i386 and amd64. Closes: #528781.
@@ -6,7 +6,7 @@ nspr (4.7.4-3) UNRELEASED; urgency=low
     allow proper reinitialization of the library. Closes: #520689.
   * debian/patches/00list: Add 30_reinit.
 
- -- Mike Hommey <glandium@debian.org>  Wed, 20 May 2009 08:29:31 +0200
+ -- Mike Hommey <glandium@debian.org>  Wed, 20 May 2009 08:36:20 +0200
 
 nspr (4.7.4-2) unstable; urgency=low
 
