@@ -1,3 +1,13 @@
+nspr (4.8-1) UNRELEASED; urgency=low
+
+  * New upstream release.
+  * debian/patches/30_reinit.dpatch: Remove, as applied upstream.
+  * debian/patches/00list: Remove 30_reinit.
+  * debian/patches/81_sonames.dpatch,
+    debian/patches/99_configure.dpatch: Adapted to upstream changes.
+
+ -- Mike Hommey <glandium@debian.org>  Sat, 13 Jun 2009 21:15:53 +0200
+
 nspr (4.7.4-3) unstable; urgency=low
 
   * debian/libnspr4-0d.symbols.kfreebsd*: Add symbols files for kfreebsd

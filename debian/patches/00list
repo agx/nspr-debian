@@ -1,6 +1,5 @@
 30_config_64bits
 30_pkgconfig
-30_reinit
 38_hurd
 80_config
 81_sonames
