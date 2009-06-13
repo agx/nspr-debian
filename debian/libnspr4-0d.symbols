@@ -18,6 +18,8 @@ libnspr4.so.0d libnspr4-0d #MINVER#
  PR_AddWaitFileDesc@Base 1.8.0.10
  PR_AllocFileDesc@Base 1.8.0.10
  PR_Assert@Base 1.8.0.10
+ PR_AssertCurrentThreadInMonitor@Base 4.8
+ PR_AssertCurrentThreadOwnsLock@Base 4.8
  PR_AtomicAdd@Base 1.8.0.10
  PR_AtomicDecrement@Base 1.8.0.10
  PR_AtomicIncrement@Base 1.8.0.10
