@@ -1,3 +1,11 @@
+nspr (4.8-2) unstable; urgency=low
+
+  * debian/patches/82_CVE-2009-1563.dpatch: Fix for CVE-2009-1563 aka
+    mfsa-2009-59.
+  * debian/patches/00list: Add 82_CVE-2009-1563.
+
+ -- Mike Hommey <glandium@debian.org>  Wed, 28 Oct 2009 16:46:28 +0100
+
 nspr (4.8-1) unstable; urgency=low
 
   * New upstream release.
