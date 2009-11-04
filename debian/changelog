@@ -1,3 +1,13 @@
+nspr (4.8.2-1) unstable; urgency=low
+
+  * New upstream release.
+  * Fixes overflow related to mfsa-2009-34, aka CVE-2009-2463.
+  * debian/patches/82_CVE-2009-1563.dpatch: Removed, as applied upstream.
+  * debian/patches/99_configure.dpatch: Updated.
+  * debian/patches/00list: Remove 82_CVE-2009-1563.
+
+ -- Mike Hommey <glandium@debian.org>  Wed, 04 Nov 2009 15:46:48 +0100
+
 nspr (4.8-2) unstable; urgency=low
 
   * debian/patches/82_CVE-2009-1563.dpatch: Fix for CVE-2009-1563 aka
