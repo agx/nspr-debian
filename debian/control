@@ -43,7 +43,7 @@ Package: libnspr4-0d-dbg
 Section: debug
 Priority: extra
 Architecture: any
-Depends: libnspr4-0d (= ${binary:Version})
+Depends: libnspr4-0d (= ${binary:Version}), ${misc:Depends}
 Description: Debugging symbols for the NetScape Portable Runtime library
  This library provides platform independent non-GUI operating system
  facilities including:
