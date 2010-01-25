@@ -1,7 +1,5 @@
 #!/usr/bin/make -f
 
-include /usr/share/dpatch/dpatch.make
-
 # These are used for cross-compiling and for saving the configure script
 # from having to guess our platform (since we know it already)
 DEB_HOST_GNU_TYPE   ?= $(shell dpkg-architecture -qDEB_HOST_GNU_TYPE)
@@ -24,7 +22,7 @@ else
 endif
 
 configure: mozilla/nsprpub/config.status
-mozilla/nsprpub/config.status: patch-stamp mozilla/nsprpub/configure
+mozilla/nsprpub/config.status: mozilla/nsprpub/configure
 	dh_testdir
 
 	for file in config.guess config.sub; do \
@@ -50,8 +48,7 @@ build-stamp: mozilla/nsprpub/config.status
 
 	touch build-stamp
 
-clean: clean-patched unpatch
-clean-patched:
+clean:
 	dh_testdir
 	dh_testroot
 	rm -f build-stamp install-stamp
@@ -97,4 +94,4 @@ binary-arch: install-stamp
 
 binary: binary-arch
 
-.PHONY: configure clean build install clean-patched binary-indep binary-arch binary
+.PHONY: configure clean build install binary-indep binary-arch binary
