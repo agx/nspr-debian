@@ -1,3 +1,20 @@
+nspr (4.8.3-1) unstable; urgency=low
+
+  * New upstream release.
+  * debian/rules, debian/patches/00list, debian/patches/80_config.dpatch:
+    Move what debian/patches/80_config.dpatch does into debian/rules.
+  * debian/patches/*: Refresh patches.
+  * debian/rules: Remove the rule to refresh 99_configure.dpatch.
+  * debian/patches/*, debian/rules, debian/control, debian/source/format:
+    Switch to 3.0 (quilt) format.
+  * debian/control: Bump Standards-Version to 3.8.3.0.
+  * debian/compat, debian/control, debian/rules: Simplify debian/rules
+    with the use of dh. This has the side effect of calling make distclean
+    properly and Closes: #552027.
+  * debian/control: Add ${misc:Depends} to libnspr4-0d-dbg dependencies.
+
+ -- Mike Hommey <glandium@debian.org>  Mon, 25 Jan 2010 12:42:30 +0100
+
 nspr (4.8.2-1) unstable; urgency=low
 
   * New upstream release.
