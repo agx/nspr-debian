@@ -97,15 +97,4 @@ binary-arch: install-stamp
 
 binary: binary-arch
 
-debian/patches/99_configure.dpatch: patch-stamp
-	-[ -f "$@" ] && dpatch deapply `basename "$@"`
-	cp mozilla/nsprpub/configure mozilla/nsprpub/configure.orig
-	cd mozilla/nsprpub && autoconf
-	diff -u mozilla/nsprpub/configure.orig mozilla/nsprpub/configure | \
-	   filterdiff --remove-timestamps --addprefix=nspr/ | \
-	   dpatch patch-template -p 99_configure autoconf > $@
-	mv -f mozilla/nsprpub/configure.orig mozilla/nsprpub/configure
-	grep -q ^99_configure$$ debian/patches/00list || echo 99_configure >> debian/patches/00list
-	dpatch apply `basename "$@"`
-
 .PHONY: configure clean build install clean-patched binary-indep binary-arch binary
