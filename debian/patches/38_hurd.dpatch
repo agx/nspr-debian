@@ -7,12 +7,12 @@
 @DPATCH@
 
 diff --git a/mozilla/nsprpub/pr/include/md/_pth.h b/mozilla/nsprpub/pr/include/md/_pth.h
-index b44fd93..c99e834 100644
+index c4cb30a..b4caacc 100644
 --- a/mozilla/nsprpub/pr/include/md/_pth.h
 +++ b/mozilla/nsprpub/pr/include/md/_pth.h
-@@ -148,10 +148,6 @@
+@@ -144,10 +144,6 @@
  	|| defined(NETBSD) || defined(OPENBSD) || defined(BSDI) \
- 	|| defined(VMS) || defined(NTO) || defined(DARWIN) \
+ 	|| defined(NTO) || defined(DARWIN) \
  	|| defined(UNIXWARE) || defined(RISCOS)	|| defined(SYMBIAN)
 -#ifdef __GNU__
 -/* Hurd pthreads don't have an invalid value for pthread_t. -- rmh */
@@ -22,7 +22,7 @@ index b44fd93..c99e834 100644
  #define _PT_PTHREAD_THR_HANDLE_IS_INVALID(t)  (t) == 0
  #define _PT_PTHREAD_COPY_THR_HANDLE(st, dt)   (dt) = (st)
 diff --git a/mozilla/nsprpub/pr/include/md/_linux.cfg b/mozilla/nsprpub/pr/include/md/_linux.cfg
-index 1999d3c..3ea818b 100644
+index 394b837..eb4118f 100644
 --- a/mozilla/nsprpub/pr/include/md/_linux.cfg
 +++ b/mozilla/nsprpub/pr/include/md/_linux.cfg
 @@ -53,6 +53,8 @@
@@ -35,10 +35,10 @@ index 1999d3c..3ea818b 100644
  #define PR_AF_INET6 10  /* same as AF_INET6 */
  #endif
 diff --git a/mozilla/nsprpub/pr/src/md/unix/uxrng.c b/mozilla/nsprpub/pr/src/md/unix/uxrng.c
-index 86f0782..e3c59d4 100644
+index cafd928..0c575dc 100644
 --- a/mozilla/nsprpub/pr/src/md/unix/uxrng.c
 +++ b/mozilla/nsprpub/pr/src/md/unix/uxrng.c
-@@ -140,7 +140,7 @@ GetHighResClock(void *buf, size_t maxbytes)
+@@ -122,7 +122,7 @@ GetHighResClock(void *buf, size_t maxbytes)
  
  #elif (defined(LINUX) || defined(FREEBSD) || defined(__FreeBSD_kernel__) \
      || defined(NETBSD) || defined(__NetBSD_kernel__) || defined(OPENBSD) \

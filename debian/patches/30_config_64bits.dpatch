@@ -17,7 +17,7 @@
  USE_CPLUS=
  USE_IPV6=
  USE_MDUPDATE=
-@@ -222,11 +222,26 @@
+@@ -231,11 +231,26 @@
      fi ])
  
  AC_ARG_ENABLE(64bit,
