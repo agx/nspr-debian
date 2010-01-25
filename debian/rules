@@ -21,10 +21,10 @@ else
 	DEBUGFLAGS := --disable-debug
 endif
 
-configure: mozilla/nsprpub/config.status
-mozilla/nsprpub/config.status: mozilla/nsprpub/configure
-	dh_testdir
+%:
+	dh --sourcedirectory=mozilla/nsprpub $@
 
+override_dh_auto_configure:
 	for file in config.guess config.sub; do \
 		sed -i '2!b;/^#/ i\exec "/usr/share/misc/'$$file'" "$$@"' mozilla/nsprpub/build/autoconf/$$file; \
 	done
@@ -40,58 +40,15 @@ mozilla/nsprpub/config.status: mozilla/nsprpub/configure
 		    --with-mozilla \
                     $(DEBUGFLAGS)
 
-build: build-stamp
-build-stamp: mozilla/nsprpub/config.status
-	dh_testdir
-
-	$(MAKE) -C mozilla/nsprpub
-
-	touch build-stamp
-
-clean:
-	dh_testdir
-	dh_testroot
-	rm -f build-stamp install-stamp
-
-	[ ! -f Makefile ] || $(MAKE) -C mozilla/nsprpub distclean
+override_dh_auto_clean:
+	dh_auto_clean --sourcedirectory=mozilla/nsprpub
 
 	for file in config.guess config.sub; do \
 		sed -i '2!b;/^exec "/ d' mozilla/nsprpub/build/autoconf/$$file; \
 	done
 
-	dh_clean
-
-install: install-stamp
-install-stamp: build-stamp
-	dh_testdir
-	dh_testroot
-	dh_clean -k
-	dh_installdirs
-
-	$(MAKE) -C mozilla/nsprpub install DESTDIR=$(CURDIR)/debian/tmp
-
-	touch install-stamp
-
-binary-indep:
-
-binary-arch: install-stamp
-	dh_testdir
-	dh_testroot
-	dh_installchangelogs -a
-	dh_installdocs -a
-	dh_install -a --sourcedir=debian/tmp
-	dh_link -a
+override_dh_strip:
 	dh_strip -a --dbg-package=libnspr4-0d-dbg
-	dh_lintian -a
-	dh_compress -a
-	dh_fixperms -a
+
+override_dh_makeshlibs:
 	dh_makeshlibs -a -V 'libnspr4-0d (>= 4.8)' -- -c4
-	dh_installdeb -a
-	dh_shlibdeps -a
-	dh_gencontrol -a
-	dh_md5sums -a
-	dh_builddeb -a
-
-binary: binary-arch
-
-.PHONY: configure clean build install binary-indep binary-arch binary
