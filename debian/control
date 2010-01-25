@@ -6,6 +6,8 @@ Uploaders: Mike Hommey <glandium@debian.org>
 Build-Depends: debhelper (>= 7.0.50), autotools-dev
 Standards-Version: 3.8.3.0
 Homepage: http://www.mozilla.org/projects/nspr/
+Vcs-Git: git://git.debian.org/git/pkg-mozilla/nspr.git
+Vcs-Browser: http://git.debian.org/?p=pkg-mozilla/nspr.git
 
 Package: libnspr4-0d
 Architecture: any
