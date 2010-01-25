@@ -27,6 +27,10 @@ configure: mozilla/nsprpub/config.status
 mozilla/nsprpub/config.status: patch-stamp mozilla/nsprpub/configure
 	dh_testdir
 
+	for file in config.guess config.sub; do \
+		sed -i '2!b;/^#/ i\exec "/usr/share/misc/'$$file'" "$$@"' mozilla/nsprpub/build/autoconf/$$file; \
+	done
+
 	CFLAGS="$(CFLAGS)" \
 	LDFLAGS="-Wl,--as-needed" \
 	cd mozilla/nsprpub && \
@@ -53,6 +57,10 @@ clean-patched:
 	rm -f build-stamp install-stamp
 
 	[ ! -f Makefile ] || $(MAKE) -C mozilla/nsprpub distclean
+
+	for file in config.guess config.sub; do \
+		sed -i '2!b;/^exec "/ d' mozilla/nsprpub/build/autoconf/$$file; \
+	done
 
 	dh_clean
 
