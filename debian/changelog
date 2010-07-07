@@ -1,3 +1,13 @@
+nspr (4.8.4-2) unstable; urgency=low
+
+  * debian/patches/90_Move_PR_STATIC_ASSERT_from_prlog.h_to_prtypes.h.patch:
+    Move PR_STATIC_ASSERT from prlog.h to prtypes.h. bz#551782.
+  * debian/control:
+    - Remove conflicts with very old packages.
+    - Bump Standards-Version to 3.9.0.0.
+
+ -- Mike Hommey <glandium@debian.org>  Thu, 08 Jul 2010 13:52:39 +0200
+
 nspr (4.8.4-1) unstable; urgency=low
 
   * New upstream release.
