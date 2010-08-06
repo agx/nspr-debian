@@ -2,5 +2,4 @@
 30_pkgconfig.patch
 38_hurd.patch
 81_sonames.patch
-90_Move_PR_STATIC_ASSERT_from_prlog.h_to_prtypes.h.patch
 99_configure.patch
