@@ -6,9 +6,11 @@
 
 @DPATCH@
 
---- nspr/mozilla/nsprpub/configure.in
-+++ nspr/mozilla/nsprpub/configure.in
-@@ -57,7 +57,7 @@
+diff --git a/mozilla/nsprpub/configure.in b/mozilla/nsprpub/configure.in
+index 119404c..8334c1f 100644
+--- a/mozilla/nsprpub/configure.in
++++ b/mozilla/nsprpub/configure.in
+@@ -57,7 +57,7 @@ USE_PTHREADS=
  USE_USER_PTHREADS=
  USE_NSPR_THREADS=
  USE_N32=
@@ -17,18 +19,17 @@
  USE_CPLUS=
  USE_IPV6=
  USE_MDUPDATE=
-@@ -231,11 +231,26 @@
+@@ -319,11 +319,26 @@ AC_ARG_ENABLE(n32,
      fi ])
  
  AC_ARG_ENABLE(64bit,
 -    [  --enable-64bit          Enable 64-bit support (on certain platforms)],
 -    [ if test "$enableval" = "yes"; then
--	    USE_64=1
 +    [  --disable-64bit         Disable 64-bit support (on 64-bit platforms)],
 +    [ if test "$enableval" = "no"; then
 +	    USE_64=
 +      else
-+	    USE_64=1
+ 	    USE_64=1
        fi ])
  
 +if test "${USE_64}"; then
