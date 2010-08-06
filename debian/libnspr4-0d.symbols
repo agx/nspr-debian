@@ -438,6 +438,7 @@ libplds4.so.0d libnspr4-0d #MINVER#
  PL_ArenaFinish@Base 1.8.0.10
  PL_ArenaGrow@Base 1.8.0.10
  PL_ArenaRelease@Base 1.8.0.10
+ PL_ClearArenaPool@Base 4.8.6
  PL_CompactArenaPool@Base 1.8.0.10
  PL_CompareStrings@Base 1.8.0.10
  PL_CompareValues@Base 1.8.0.10
