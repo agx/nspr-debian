@@ -44,4 +44,4 @@ override_dh_strip:
 	dh_strip -a --dbg-package=libnspr4-0d-dbg
 
 override_dh_makeshlibs:
-	dh_makeshlibs -a -V 'libnspr4-0d (>= 4.8)' -- -c4
+	dh_makeshlibs -a -V 'libnspr4-0d (>= 4.8.6)' -- -c4
