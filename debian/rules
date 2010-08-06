@@ -8,12 +8,10 @@ else
 	OPTFLAGS := --enable-optimize
 endif
 
-OPTCFLAGS += -g
-
 ifneq (,$(findstring debug,$(DEB_BUILD_OPTIONS)))
 	DEBUGFLAGS := --enable-debug
 else
-	DEBUGFLAGS := --disable-debug
+	DEBUGFLAGS := --disable-debug --enable-debug-symbols
 endif
 
 %:
