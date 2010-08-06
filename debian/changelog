@@ -1,3 +1,19 @@
+nspr (4.8.6-1) unstable; urgency=low
+
+  * New upstream release.
+  * debian/patches/*: Refresh patches.
+  * debian/patches/90_Move_PR_STATIC_ASSERT_from_prlog.h_to_prtypes.h.patch:
+    Removed, as applied upstream.
+  * debian/libnspr4-0d.symbols: Add new symbol.
+  * debian/rules:
+    - Bump shlibs.
+    - Let nspr use its own optimization options.
+    - Use the --enable-debug-symbols configure option instead of forcing -g
+      into compiler flags.
+  * debian/control: Bump Standards-Version to 3.9.1.0.
+
+ -- Mike Hommey <glandium@debian.org>  Fri, 06 Aug 2010 08:21:33 +0200
+
 nspr (4.8.4-2) unstable; urgency=low
 
   * debian/patches/90_Move_PR_STATIC_ASSERT_from_prlog.h_to_prtypes.h.patch:
