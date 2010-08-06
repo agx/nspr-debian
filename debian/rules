@@ -3,9 +3,9 @@
 CFLAGS := -Wall -pipe
 
 ifneq (,$(findstring noopt,$(DEB_BUILD_OPTIONS)))
-	OPTCFLAGS := -O0
+	OPTFLAGS := --disable-optimize
 else
-	OPTCFLAGS := -O2 -fno-strict-aliasing
+	OPTFLAGS := --enable-optimize
 endif
 
 OPTCFLAGS += -g
@@ -27,7 +27,7 @@ override_dh_auto_configure:
 	CFLAGS="$(CFLAGS)" \
 	LDFLAGS="-Wl,--as-needed" \
 	dh_auto_configure -- \
-                    --enable-optimize="$(OPTCFLAGS)" \
+                    $(OPTFLAGS) \
 		    --prefix=/usr \
 		    --enable-ipv6 \
 		    --with-mozilla \
