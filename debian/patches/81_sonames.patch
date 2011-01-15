@@ -241,7 +241,7 @@ index 3514ab1..a86766e 100644
  
 @@ -391,12 +392,14 @@ endif
  
- export:: $(TARGETS)
+ build:: $(TARGETS)
  	$(INSTALL) -m 444 $(TARGETS) $(dist_libdir)
 +	$(call MKSHLINKS,$(dist_libdir))
  ifdef SHARED_LIBRARY
