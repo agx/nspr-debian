@@ -7,7 +7,7 @@
 @DPATCH@
 
 diff --git a/mozilla/nsprpub/configure b/mozilla/nsprpub/configure
-index 5ac69eb..d4dd6d0 100755
+index 5ac69eb..c72489b 100755
 --- a/mozilla/nsprpub/configure
 +++ b/mozilla/nsprpub/configure
 @@ -50,7 +50,7 @@ ac_help="$ac_help
@@ -787,6 +787,17 @@ index 5ac69eb..d4dd6d0 100755
  if eval "test \"`echo '$''{'ac_cv_path_PERL'+set}'`\" = set"; then
    echo $ac_n "(cached) $ac_c" 1>&6
  else
+@@ -3113,8 +3247,8 @@ if test -n "$MOZ_THUMB2"; then
+     ;;
+   esac
+ else
+-  case "$target_cpu" in
+-    arm*)
++  case "$target" in
++    arm-android-eabi)
+       if test "$GNU_CC"; then
+        CFLAGS="$CFLAGS -march=armv5te -mthumb-interwork -Wa, -march=armv5te -Wa, -mthumb-interwork"
+         CXXFLAGS="$CXXFLAGS -march=armv5te -mthumb-interwork -Wa, -march=armv5te -Wa, -mthumb-interwork"
 @@ -3162,17 +3296,17 @@ EOF
      DSO_LDOPTS='-brtl -bnortllib -bM:SRE -bnoentry -bexpall -blibpath:/usr/lib:/lib'
      ac_safe=`echo "sys/atomic_op.h" | sed 'y%./+-%__p_%'`

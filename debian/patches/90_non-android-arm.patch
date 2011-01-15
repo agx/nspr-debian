@@ -1,0 +1,19 @@
+Don't use -march=armv5te -mthumb-interwork on non-android arm platforms
+
+https://bugzilla.mozilla.org/show_bug.cgi?id=626035
+
+diff --git a/mozilla/nsprpub/configure.in b/mozilla/nsprpub/configure.in
+index e8171b8..61292ec 100644
+--- a/mozilla/nsprpub/configure.in
++++ b/mozilla/nsprpub/configure.in
+@@ -937,8 +937,8 @@ if test -n "$MOZ_THUMB2"; then
+     ;;
+   esac
+ else
+-  case "$target_cpu" in
+-    arm*)
++  case "$target" in
++    arm-android-eabi)
+       if test "$GNU_CC"; then
+        CFLAGS="$CFLAGS -march=armv5te -mthumb-interwork -Wa, -march=armv5te -Wa, -mthumb-interwork"
+         CXXFLAGS="$CXXFLAGS -march=armv5te -mthumb-interwork -Wa, -march=armv5te -Wa, -mthumb-interwork"
