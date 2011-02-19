@@ -1,3 +1,14 @@
+nspr (4.8.7-2) unstable; urgency=low
+
+  * Upload to unstable.
+  * debian/rules: Merge OPTFLAGS and DEBUGFLAGS in one variable.
+  * debian/control, debian/patches/30_config_64bits.patch,
+    debian/patches/99_configure.patch, debian/patches/series,
+    debian/rules: Use dpkg-architecture to enable 64-bits build on 64 bits
+    architectures, instead of relying on a patch to configure.in.
+
+ -- Mike Hommey <glandium@debian.org>  Sat, 19 Feb 2011 14:21:52 +0100
+
 nspr (4.8.7-1) experimental; urgency=low
 
   * New upstream release.
