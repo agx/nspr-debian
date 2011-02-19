@@ -3,15 +3,15 @@
 CFLAGS := -Wall -pipe
 
 ifneq (,$(findstring noopt,$(DEB_BUILD_OPTIONS)))
-	OPTFLAGS := --disable-optimize
+	CONFIGURE_FLAGS := --disable-optimize
 else
-	OPTFLAGS := --enable-optimize
+	CONFIGURE_FLAGS := --enable-optimize
 endif
 
 ifneq (,$(findstring debug,$(DEB_BUILD_OPTIONS)))
-	DEBUGFLAGS := --enable-debug
+	CONFIGURE_FLAGS += --enable-debug
 else
-	DEBUGFLAGS := --disable-debug --enable-debug-symbols
+	CONFIGURE_FLAGS += --disable-debug --enable-debug-symbols
 endif
 
 %:
@@ -25,11 +25,10 @@ override_dh_auto_configure:
 	CFLAGS="$(CFLAGS)" \
 	LDFLAGS="-Wl,--as-needed" \
 	dh_auto_configure -- \
-                    $(OPTFLAGS) \
+                    $(CONFIGURE_FLAGS) \
 		    --prefix=/usr \
 		    --enable-ipv6 \
-		    --with-mozilla \
-                    $(DEBUGFLAGS)
+		    --with-mozilla
 
 override_dh_auto_clean:
 	dh_auto_clean
