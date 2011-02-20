@@ -390,6 +390,22 @@ libnspr4.so.0d libnspr4-0d #MINVER#
  SetExecutionEnvironment@Base 1.8.0.10
  _pr_push_ipv6toipv4_layer@Base 1.8.0.10
  _pr_test_ipv6_socket@Base 1.8.0.10
+ (arch=amd64 kfreebsd-amd64)_PR_x86_64_AtomicAdd@Base 1.8.0.10
+ (arch=amd64 kfreebsd-amd64)_PR_x86_64_AtomicDecrement@Base 1.8.0.10
+ (arch=amd64 kfreebsd-amd64)_PR_x86_64_AtomicIncrement@Base 1.8.0.10
+ (arch=amd64 kfreebsd-amd64)_PR_x86_64_AtomicSet@Base 1.8.0.10
+ (arch=i386 kfreebsd-i386 hurd-i386)_PR_x86_AtomicAdd@Base 1.8.0.10
+ (arch=i386 kfreebsd-i386 hurd-i386)_PR_x86_AtomicDecrement@Base 1.8.0.10
+ (arch=i386 kfreebsd-i386 hurd-i386)_PR_x86_AtomicIncrement@Base 1.8.0.10
+ (arch=i386 kfreebsd-i386 hurd-i386)_PR_x86_AtomicSet@Base 1.8.0.10
+ (arch=ia64)_PR_ia64_AtomicAdd@Base 1.8.0.10
+ (arch=ia64)_PR_ia64_AtomicDecrement@Base 1.8.0.10
+ (arch=ia64)_PR_ia64_AtomicIncrement@Base 1.8.0.10
+ (arch=ia64)_PR_ia64_AtomicSet@Base 1.8.0.10
+ (arch=powerpc)_PR_ppc_AtomicAdd@Base 4.7.0
+ (arch=powerpc)_PR_ppc_AtomicDecrement@Base 4.7.0
+ (arch=powerpc)_PR_ppc_AtomicIncrement@Base 4.7.0
+ (arch=powerpc)_PR_ppc_AtomicSet@Base 4.7.0
  libVersionPoint@Base 1.8.0.10
 libplc4.so.0d libnspr4-0d #MINVER#
  PL_Base64Decode@Base 1.8.0.10
