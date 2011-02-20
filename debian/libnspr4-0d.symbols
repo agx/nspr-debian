@@ -402,10 +402,10 @@ libnspr4.so.0d libnspr4-0d #MINVER#
  (arch=ia64)_PR_ia64_AtomicDecrement@Base 1.8.0.10
  (arch=ia64)_PR_ia64_AtomicIncrement@Base 1.8.0.10
  (arch=ia64)_PR_ia64_AtomicSet@Base 1.8.0.10
- (arch=powerpc)_PR_ppc_AtomicAdd@Base 4.7.0
- (arch=powerpc)_PR_ppc_AtomicDecrement@Base 4.7.0
- (arch=powerpc)_PR_ppc_AtomicIncrement@Base 4.7.0
- (arch=powerpc)_PR_ppc_AtomicSet@Base 4.7.0
+ (arch=powerpc powerpcspe)_PR_ppc_AtomicAdd@Base 4.7.0
+ (arch=powerpc powerpcspe)_PR_ppc_AtomicDecrement@Base 4.7.0
+ (arch=powerpc powerpcspe)_PR_ppc_AtomicIncrement@Base 4.7.0
+ (arch=powerpc powerpcspe)_PR_ppc_AtomicSet@Base 4.7.0
  libVersionPoint@Base 1.8.0.10
 libplc4.so.0d libnspr4-0d #MINVER#
  PL_Base64Decode@Base 1.8.0.10
