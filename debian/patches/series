@@ -1,5 +1,4 @@
 30_pkgconfig.patch
 38_hurd.patch
 81_sonames.patch
-90_non-android-arm.patch
 99_configure.patch
