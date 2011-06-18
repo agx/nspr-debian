@@ -1,3 +1,13 @@
+nspr (4.8.8-2) unstable; urgency=low
+
+  * debian/libnspr4-0d.install.in, debian/libnspr4-0d.lintian-overrides.in,
+    debian/libnspr4-dev.install.in, debian/libnspr4-dev.links.in,
+    debian/control, debian/rules: Switch to multi-arch while keeping
+    backports easy. Closes: #497087.
+  * debian/control: Bump Standards-Version to 3.9.2.0. No changes required.
+
+ -- Mike Hommey <glandium@debian.org>  Sat, 18 Jun 2011 18:45:29 +0900
+
 nspr (4.8.8-1) unstable; urgency=low
 
   * New upstream release.
