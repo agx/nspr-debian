@@ -1,0 +1,7 @@
+# These .so symlinks are here for compatibility with other distros and external
+# binaries depending on nspr.
+libnspr4-0d: non-dev-pkg-with-shlib-symlink usr/lib/@DEB_HOST_MULTIARCH@/libplc4.so.0d usr/lib/@DEB_HOST_MULTIARCH@/libplc4.so
+libnspr4-0d: non-dev-pkg-with-shlib-symlink usr/lib/@DEB_HOST_MULTIARCH@/libnspr4.so.0d usr/lib/@DEB_HOST_MULTIARCH@/libnspr4.so
+libnspr4-0d: non-dev-pkg-with-shlib-symlink usr/lib/@DEB_HOST_MULTIARCH@/libplds4.so.0d usr/lib/@DEB_HOST_MULTIARCH@/libplds4.so
+# License says GPL 2 or subsequent, so pointing to the latest version is fine
+libnspr4-0d: copyright-refers-to-versionless-license-file usr/share/common-licenses/GPL

@@ -18,10 +18,17 @@ ifeq (64,$(shell dpkg-architecture -qDEB_HOST_ARCH_BITS))
 	CONFIGURE_FLAGS += --enable-64bit
 endif
 
+DEB_HOST_MULTIARCH ?= $(shell dpkg-architecture -qDEB_HOST_MULTIARCH)
+
+PREPROCESS_FILES := $(wildcard debian/*.in)
+
+$(PREPROCESS_FILES:.in=): %: %.in
+	sed 's,@DEB_HOST_MULTIARCH@/,$(DEB_HOST_MULTIARCH:=/),g' $< > $@
+
 %:
 	dh --sourcedirectory=mozilla/nsprpub $@
 
-override_dh_auto_configure:
+override_dh_auto_configure: $(PREPROCESS_FILES:.in=)
 	for file in config.guess config.sub; do \
 		sed -i '2!b;/^#/ i\exec "/usr/share/misc/'$$file'" "$$@"' mozilla/nsprpub/build/autoconf/$$file; \
 	done
@@ -31,12 +38,14 @@ override_dh_auto_configure:
 	dh_auto_configure -- \
                     $(CONFIGURE_FLAGS) \
 		    --prefix=/usr \
+		    --libdir=/usr/lib/$(DEB_HOST_MULTIARCH)
 		    --enable-ipv6 \
 		    --with-mozilla
 
 override_dh_auto_clean:
 	dh_auto_clean
 
+	rm -f $(PREPROCESS_FILES:.in=)
 	for file in config.guess config.sub; do \
 		sed -i '2!b;/^exec "/ d' mozilla/nsprpub/build/autoconf/$$file; \
 	done
@@ -46,3 +55,8 @@ override_dh_strip:
 
 override_dh_makeshlibs:
 	dh_makeshlibs -a -V 'libnspr4-0d (>= 4.8.6)' -- -c4
+
+ifneq (,$(DEB_HOST_MULTIARCH))
+override_dh_gencontrol:
+	dh_gencontrol -- -Vmisc:Multi-Arch=same
+endif
