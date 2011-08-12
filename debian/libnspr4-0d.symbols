@@ -202,6 +202,7 @@ libnspr4.so.0d libnspr4-0d #MINVER#
  PR_GetTraceOption@Base 1.8.0.10
  PR_GetUDPMethods@Base 1.8.0.10
  PR_GetUniqueIdentity@Base 1.8.0.10
+ PR_GetVersion@Base 4.8.9
  PR_ImplodeTime@Base 1.8.0.10
  PR_ImportFile@Base 1.8.0.10
  PR_ImportFileMapFromString@Base 1.8.0.10
