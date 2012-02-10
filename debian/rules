@@ -23,7 +23,7 @@ DEB_HOST_MULTIARCH ?= $(shell dpkg-architecture -qDEB_HOST_MULTIARCH)
 PREPROCESS_FILES := $(wildcard debian/*.in)
 
 $(PREPROCESS_FILES:.in=): %: %.in
-	sed 's,@DEB_HOST_MULTIARCH@/,$(DEB_HOST_MULTIARCH:=/),g' $< > $@
+	sed 's,@DEB_HOST_MULTIARCH@/,$(DEB_HOST_MULTIARCH:=/),g;s,@MULTIARCH_WILDCARD@/,$(if $(DEB_HOST_MULTIARCH),*/),g' $< > $@
 
 %:
 	dh --sourcedirectory=mozilla/nsprpub $@
