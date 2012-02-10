@@ -1,3 +1,13 @@
+nspr (4.9~beta5-2) unstable; urgency=low
+
+  * debian/rules, debian/libnspr4-0d.lintian-overrides.in: Use wildcards for
+    multiarch in lintian overrides. Closes: #658843.
+  * mozilla/nsprpub/configure.*: Allow to enable a set of hardening flags.
+    bz#725941.
+  * debian/rules: Enable hardening. Closes: #657522.
+
+ -- Mike Hommey <glandium@debian.org>  Fri, 10 Feb 2012 10:14:50 +0100
+
 nspr (4.9~beta5-1) experimental; urgency=low
 
   * New upstream beta release.
