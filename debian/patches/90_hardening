@@ -1,8 +1,8 @@
 Index: nspr/mozilla/nsprpub/configure.in
 ===================================================================
---- nspr.orig/mozilla/nsprpub/configure.in	2012-02-10 09:48:44.962714722 +0100
-+++ nspr/mozilla/nsprpub/configure.in	2012-02-10 09:55:02.726325400 +0100
-@@ -733,6 +733,25 @@
+--- nspr.orig/mozilla/nsprpub/configure.in	2012-02-24 09:14:49.321498512 +0100
++++ nspr/mozilla/nsprpub/configure.in	2012-02-24 09:14:51.701436782 +0100
+@@ -739,6 +739,25 @@
  fi
  
  dnl ========================================================
