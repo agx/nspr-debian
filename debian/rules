@@ -25,7 +25,7 @@ ifeq (64,$(shell dpkg-architecture -qDEB_HOST_ARCH_BITS))
 	CONFIGURE_FLAGS += --enable-64bit
 endif
 
-DEB_HOST_MULTIARCH ?= $(shell dpkg-architecture -qDEB_HOST_MULTIARCH)
+$(call lazy,DEB_HOST_MULTIARCH,$$(shell dpkg-architecture -qDEB_HOST_MULTIARCH))
 
 PREPROCESS_FILES := $(wildcard debian/*.in)
 
