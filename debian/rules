@@ -53,10 +53,12 @@ override_dh_auto_clean:
 	done
 
 override_dh_strip:
-	dh_strip -a --dbg-package=libnspr4-0d-dbg
+	dh_strip -a --dbg-package=libnspr4-dbg
 
-override_dh_makeshlibs:
-	dh_makeshlibs -a -V 'libnspr4-0d (>= 4.8.9)' -- -c4
+override_dh_makeshlibs: /usr/share/debhelper/autoscripts/postinst-makeshlibs /usr/share/debhelper/autoscripts/postrm-makeshlibs
+	dh_makeshlibs -a -- -c4
+	cat /usr/share/debhelper/autoscripts/postinst-makeshlibs > debian/libnspr4.postinst.debhelper
+	cat /usr/share/debhelper/autoscripts/postrm-makeshlibs > debian/libnspr4.postrm.debhelper
 
 ifneq (,$(DEB_HOST_MULTIARCH))
 override_dh_gencontrol:

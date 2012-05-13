@@ -8,8 +8,8 @@
 
 Index: nspr/mozilla/nsprpub/configure
 ===================================================================
---- nspr.orig/mozilla/nsprpub/configure	2012-02-24 09:14:32.061946191 +0100
-+++ nspr/mozilla/nsprpub/configure	2012-02-24 09:15:11.744916908 +0100
+--- nspr.orig/mozilla/nsprpub/configure	2012-05-13 08:50:43.119197065 +0200
++++ nspr/mozilla/nsprpub/configure	2012-05-13 09:08:18.292682748 +0200
 @@ -70,6 +70,8 @@
                            Set the minimum MacOS version needed at runtime
                            [10.2 for ppc, 10.4 for x86]"
@@ -884,15 +884,6 @@ Index: nspr/mozilla/nsprpub/configure
  ac_err=`grep -v '^ *+' conftest.out | grep -v "^conftest.${ac_ext}\$"`
  if test -z "$ac_err"; then
    rm -rf conftest*
-@@ -3614,7 +3753,7 @@
-     PR_MD_CSRCS=linux.c
-     MKSHLIB='$(CC) $(DSO_LDOPTS) -o $@'
-     DSO_CFLAGS=-fPIC
--    DSO_LDOPTS='-shared -Wl,-soname -Wl,$(notdir $@)'
-+    DSO_LDOPTS='-shared -Wl,-soname -Wl,$(SONAME)'
-     _OPTIMIZE_FLAGS=-O2
-     _DEBUG_FLAGS="-g -fno-inline"  # most people on linux use gcc/gdb, and that
-                                    # combo is not yet good at debugging inlined
 @@ -3654,7 +3793,7 @@
          _DEBUG_FLAGS='-gdwarf-2 -O0'
          MKSHLIB='$(CCC) $(DSO_LDOPTS) -o $@'
@@ -920,15 +911,6 @@ Index: nspr/mozilla/nsprpub/configure
    rm -rf conftest*
    eval "ac_cv_lib_$ac_lib_var=yes"
  else
-@@ -3799,7 +3938,7 @@
- 
-         MKSHLIB='$(CC) -o $@ $(DSO_LDOPTS)'
-         DSO_CFLAGS=-fPIC
--        DSO_LDOPTS='-shared -Wl,-soname,$(@:$(OBJDIR)/%.so=%.so)'
-+        DSO_LDOPTS='-shared -Wl,-soname,$(SONAME)'
-         STRIP="$STRIP -d"
-         case "$target_os" in
-         bsdi4.2* | bsdi4.3* | bsdi5.*)
 @@ -3882,17 +4021,17 @@
      fi
      ac_safe=`echo "crt_externs.h" | sed 'y%./+-%__p_%'`
@@ -950,51 +932,6 @@ Index: nspr/mozilla/nsprpub/configure
  ac_err=`grep -v '^ *+' conftest.out | grep -v "^conftest.${ac_ext}\$"`
  if test -z "$ac_err"; then
    rm -rf conftest*
-@@ -4068,7 +4207,7 @@
-     fi
-     MKSHLIB='$(CC) $(DSO_LDOPTS) -o $@'
-     DSO_CFLAGS=-fPIC
--    DSO_LDOPTS='-shared -Wl,-soname -Wl,$(notdir $@)'
-+    DSO_LDOPTS='-shared -Wl,-soname -Wl,$(SONAME)'
-     MDCPUCFG_H=_freebsd.cfg
-     PR_MD_CSRCS=freebsd.c
-     ;;
-@@ -4098,7 +4237,7 @@
- #define _USE_BIG_FDS 1
- EOF
- 
--    DSO_LDOPTS='-b +h $(notdir $@)'
-+    DSO_LDOPTS='-b +h $(SONAME)'
-     PR_MD_CSRCS=hpux.c
-     if test "$OS_TEST" = "ia64"; then
-         DLL_SUFFIX=so
-@@ -4453,7 +4592,7 @@
-     PR_MD_CSRCS=linux.c
-     MKSHLIB='$(CC) $(DSO_LDOPTS) -o $@'
-     DSO_CFLAGS=-fPIC
--    DSO_LDOPTS='-shared -Wl,-soname -Wl,$(notdir $@)'
-+    DSO_LDOPTS='-shared -Wl,-soname -Wl,$(SONAME)'
-     _OPTIMIZE_FLAGS=-O2
-     _DEBUG_FLAGS="-g -fno-inline"  # most people on linux use gcc/gdb, and that
-                                    # combo is not yet good at debugging inlined
-@@ -4901,7 +5040,7 @@
-         else
-             OBJECT_FMT=ELF
-             DLL_SUFFIX=so
--            DSO_LDOPTS='-shared -Wl,-soname,$(notdir $@)'
-+            DSO_LDOPTS='-shared -Wl,-soname,$(SONAME)'
-         fi
-     fi
- 
-@@ -4992,7 +5131,7 @@
- 
-     MDCPUCFG_H=_nto.cfg
-     PR_MD_CSRCS=nto.c
--    MKSHLIB='$(CC) $(DSO_LDOPTS) -Wl,-soname -Wl,$(notdir $@) -o $@'
-+    MKSHLIB='$(CC) $(DSO_LDOPTS) -Wl,-soname -Wl,$(SONAME) -o $@'
-     DSO_CFLAGS=-fPIC
-     DSO_LDOPTS=-shared
-     OS_LIBS="$OS_LIBS -lsocket"
 @@ -5066,17 +5205,17 @@
          _OPTIMIZE_FLAGS="$_OPTIMIZE_FLAGS -Olimit 4000"
          ac_safe=`echo "machine/builtins.h" | sed 'y%./+-%__p_%'`
@@ -1016,40 +953,6 @@ Index: nspr/mozilla/nsprpub/configure
  ac_err=`grep -v '^ *+' conftest.out | grep -v "^conftest.${ac_ext}\$"`
  if test -z "$ac_err"; then
    rm -rf conftest*
-@@ -5126,7 +5265,7 @@
- EOF
- 
-     fi
--    DSO_LDOPTS='-shared -all -expect_unresolved "*" -soname $(notdir $@)'
-+    DSO_LDOPTS='-shared -all -expect_unresolved "*" -soname $(SONAME)'
-     MDCPUCFG_H=_osf1.cfg
-     PR_MD_CSRCS=osf1.c
-     ;;
-@@ -5250,7 +5389,7 @@
-         _OPTIMIZE_FLAGS='-O -F Olimit,4000'
-     fi
- 
--    DSO_LDOPTS='-G -z defs -h $(@:$(OBJDIR)/%.so=%.so)'
-+    DSO_LDOPTS='-G -z defs -h $(SONAME)'
- 
-     if test "$OS_RELEASE" = "5.43"; then
-         cat >> confdefs.h <<\EOF
-@@ -5345,13 +5484,13 @@
-         if `$CC -print-prog-name=ld` -v 2>&1 | grep -c GNU >/dev/null; then
-             GCC_USE_GNU_LD=1
-         fi
--        DSO_LDOPTS='-shared -Wl,-h,$(notdir $@),-z,combreloc,-z,defs,-z,ignore' 
-+        DSO_LDOPTS='-shared -Wl,-h,$(SONAME),-z,combreloc,-z,defs,-z,ignore' 
-         if test -n "$USE_B_DIRECT"; then
-             DSO_LDOPTS="$DSO_LDOPTS,-Bdirect"
-         fi
-     else
-         DSO_CFLAGS=-KPIC
--        DSO_LDOPTS='-G -h $(notdir $@) -z combreloc -z defs -z ignore'
-+        DSO_LDOPTS='-G -h $(SONAME) -z combreloc -z defs -z ignore'
-         if test -n "$USE_B_DIRECT"; then
-             DSO_LDOPTS="$DSO_LDOPTS -Bdirect"
-         fi
 @@ -5725,7 +5864,7 @@
      ;;
  *)
