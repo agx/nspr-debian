@@ -1,4 +1,3 @@
 30_pkgconfig.patch
 38_hurd.patch
-90_hardening
 99_configure.patch

@@ -1,6 +1,13 @@
 #!/usr/bin/make -f
 
-CFLAGS := -Wall -pipe
+include debian/make.mk
+dpkg_buildflags = $(and $(1),$(shell DEB_BUILD_MAINT_OPTIONS=hardening=-relro DEB_CFLAGS_MAINT_STRIP="$(shell DEB_BUILD_MAINT_OPTIONS=hardening=-all dpkg-buildflags --get $(1))" dpkg-buildflags --get $(1)))
+$(call lazy,CFLAGS,$$(call dpkg_buildflags,CFLAGS))
+$(call lazy,CPPFLAGS,$$(call dpkg_buildflags,CPPFLAGS))
+$(call lazy,LDFLAGS,$$(call dpkg_buildflags,LDFLAGS))
+
+CFLAGS += -Wall -pipe
+LDFLAGS += -Wl,--as-needed
 
 ifneq (,$(findstring noopt,$(DEB_BUILD_OPTIONS)))
 	CONFIGURE_FLAGS := --disable-optimize
@@ -18,8 +25,6 @@ ifeq (64,$(shell dpkg-architecture -qDEB_HOST_ARCH_BITS))
 	CONFIGURE_FLAGS += --enable-64bit
 endif
 
-CONFIGURE_FLAGS += --enable-hardening
-
 DEB_HOST_MULTIARCH ?= $(shell dpkg-architecture -qDEB_HOST_MULTIARCH)
 
 PREPROCESS_FILES := $(wildcard debian/*.in)
@@ -36,7 +41,8 @@ override_dh_auto_configure: $(PREPROCESS_FILES:.in=)
 	done
 
 	CFLAGS="$(CFLAGS)" \
-	LDFLAGS="-Wl,--as-needed" \
+	CPPFLAGS="$(CPPFLAGS)" \
+	LDFLAGS="$(LDFLAGS)" \
 	dh_auto_configure -- \
                     $(CONFIGURE_FLAGS) \
 		    --prefix=/usr \
