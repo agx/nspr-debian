@@ -4,7 +4,7 @@ Priority: optional
 Maintainer: Maintainers of Mozilla-related packages <pkg-mozilla-maintainers@lists.alioth.debian.org>
 Uploaders: Mike Hommey <glandium@debian.org>
 Build-Depends: debhelper (>= 8.1.3), autotools-dev, dpkg-dev (>= 1.15.4)
-Standards-Version: 3.9.2.0
+Standards-Version: 3.9.3.0
 Homepage: http://www.mozilla.org/projects/nspr/
 Vcs-Git: git://git.debian.org/git/pkg-mozilla/nspr.git
 Vcs-Browser: http://git.debian.org/?p=pkg-mozilla/nspr.git
