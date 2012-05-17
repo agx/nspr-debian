@@ -1,3 +1,9 @@
+nspr (2:4.9-3) unstable; urgency=low
+
+  * debian/rules: Re-enable read-only relocations. Closes: #673090.
+
+ -- Mike Hommey <glandium@debian.org>  Thu, 17 May 2012 08:43:32 +0200
+
 nspr (2:4.9-2) unstable; urgency=low
 
   * debian/control, debian/libnspr4*, debian/rules,
