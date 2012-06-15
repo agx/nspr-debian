@@ -48,8 +48,6 @@ override_dh_auto_configure: $(PREPROCESS_FILES:.in=)
                     $(CONFIGURE_FLAGS) \
 		    --prefix=/usr \
 		    --libdir=/usr/lib/$(DEB_HOST_MULTIARCH)
-		    --enable-ipv6 \
-		    --with-mozilla
 
 override_dh_auto_clean:
 	dh_auto_clean
