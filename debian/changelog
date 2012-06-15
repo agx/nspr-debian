@@ -1,3 +1,10 @@
+nspr (2:4.9.1-1) unstable; urgency=low
+
+   * New upstream release. Now patch-free!
+   * debian/copyright: Upstream upgraded to MPL 2.0.
+
+ -- Mike Hommey <glandium@debian.org>  Fri, 15 Jun 2012 09:25:54 +0200
+
 nspr (2:4.9-3) unstable; urgency=low
 
   * debian/rules: Re-enable read-only relocations. Closes: #673090.
