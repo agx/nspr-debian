@@ -1,3 +1,9 @@
+nspr (2:4.10.2-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Mike Hommey <glandium@debian.org>  Sat, 16 Nov 2013 08:11:38 +0900
+
 nspr (2:4.10.1-1) unstable; urgency=low
 
   * New upstream release.
