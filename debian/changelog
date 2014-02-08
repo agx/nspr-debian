@@ -1,3 +1,10 @@
+nspr (2:4.10.3-1) unstable; urgency=medium
+
+  * New upstream release.
+  * debian/libnspr4.symbols: Updated.
+
+ -- Mike Hommey <glandium@debian.org>  Sat, 08 Feb 2014 10:51:24 +0900
+
 nspr (2:4.10.2-1) unstable; urgency=low
 
   * New upstream release.
