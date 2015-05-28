@@ -314,6 +314,7 @@ libnspr4.so libnspr4 (>= 2:4.9-2~) | libnspr4-0d #MINVER#
  PR_SetAlarm@Base 1.8.0.10
  PR_SetConcurrency@Base 1.8.0.10
  PR_SetCounter@Base 1.8.0.10
+ PR_SetCurrentThreadName@Base 2:4.9.2 1
  PR_SetEnv@Base 1.8.0.10
  PR_SetError@Base 1.8.0.10
  PR_SetErrorText@Base 1.8.0.10
@@ -330,7 +331,6 @@ libnspr4.so libnspr4 (>= 2:4.9-2~) | libnspr4-0d #MINVER#
  PR_SetThreadAffinityMask@Base 1.8.0.10
  PR_SetThreadDumpProc@Base 1.8.0.10
  PR_SetThreadGCAble@Base 1.8.0.10
- PR_SetCurrentThreadName@Base 2:4.9.2 1
  PR_SetThreadPriority@Base 1.8.0.10
  PR_SetThreadPrivate@Base 1.8.0.10
  PR_SetThreadRecycleMode@Base 1.8.0.10
@@ -393,16 +393,6 @@ libnspr4.so libnspr4 (>= 2:4.9-2~) | libnspr4-0d #MINVER#
  PR_vsxprintf@Base 1.8.0.10
  PT_FPrintStats@Base 1.8.0.10
  SetExecutionEnvironment@Base 1.8.0.10
- _pr_push_ipv6toipv4_layer@Base 1.8.0.10
- _pr_test_ipv6_socket@Base 1.8.0.10
- (arch=amd64 kfreebsd-amd64 x32)_PR_x86_64_AtomicAdd@Base 1.8.0.10
- (arch=amd64 kfreebsd-amd64 x32)_PR_x86_64_AtomicDecrement@Base 1.8.0.10
- (arch=amd64 kfreebsd-amd64 x32)_PR_x86_64_AtomicIncrement@Base 1.8.0.10
- (arch=amd64 kfreebsd-amd64 x32)_PR_x86_64_AtomicSet@Base 1.8.0.10
- (arch=i386 kfreebsd-i386 hurd-i386)_PR_x86_AtomicAdd@Base 1.8.0.10
- (arch=i386 kfreebsd-i386 hurd-i386)_PR_x86_AtomicDecrement@Base 1.8.0.10
- (arch=i386 kfreebsd-i386 hurd-i386)_PR_x86_AtomicIncrement@Base 1.8.0.10
- (arch=i386 kfreebsd-i386 hurd-i386)_PR_x86_AtomicSet@Base 1.8.0.10
  (arch=ia64)_PR_ia64_AtomicAdd@Base 1.8.0.10
  (arch=ia64)_PR_ia64_AtomicDecrement@Base 1.8.0.10
  (arch=ia64)_PR_ia64_AtomicIncrement@Base 1.8.0.10
@@ -411,6 +401,16 @@ libnspr4.so libnspr4 (>= 2:4.9-2~) | libnspr4-0d #MINVER#
  (arch=powerpc powerpcspe)_PR_ppc_AtomicDecrement@Base 4.7.0
  (arch=powerpc powerpcspe)_PR_ppc_AtomicIncrement@Base 4.7.0
  (arch=powerpc powerpcspe)_PR_ppc_AtomicSet@Base 4.7.0
+ (arch=amd64 kfreebsd-amd64 x32)_PR_x86_64_AtomicAdd@Base 1.8.0.10
+ (arch=amd64 kfreebsd-amd64 x32)_PR_x86_64_AtomicDecrement@Base 1.8.0.10
+ (arch=amd64 kfreebsd-amd64 x32)_PR_x86_64_AtomicIncrement@Base 1.8.0.10
+ (arch=amd64 kfreebsd-amd64 x32)_PR_x86_64_AtomicSet@Base 1.8.0.10
+ (arch=i386 kfreebsd-i386 hurd-i386)_PR_x86_AtomicAdd@Base 1.8.0.10
+ (arch=i386 kfreebsd-i386 hurd-i386)_PR_x86_AtomicDecrement@Base 1.8.0.10
+ (arch=i386 kfreebsd-i386 hurd-i386)_PR_x86_AtomicIncrement@Base 1.8.0.10
+ (arch=i386 kfreebsd-i386 hurd-i386)_PR_x86_AtomicSet@Base 1.8.0.10
+ _pr_push_ipv6toipv4_layer@Base 1.8.0.10
+ _pr_test_ipv6_socket@Base 1.8.0.10
  libVersionPoint@Base 1.8.0.10
 libplc4.so libnspr4 (>= 2:4.9-2~) | libnspr4-0d #MINVER#
  PL_Base64Decode@Base 1.8.0.10
@@ -479,6 +479,6 @@ libplds4.so libnspr4 (>= 2:4.9-2~) | libnspr4-0d #MINVER#
  PL_HashTableRawRemove@Base 1.8.0.10
  PL_HashTableRemove@Base 1.8.0.10
  PL_InitArenaPool@Base 1.8.0.10
- PL_SizeOfArenaPoolExcludingPool@Base 2:4.9.6~ 1
  PL_NewHashTable@Base 1.8.0.10
+ PL_SizeOfArenaPoolExcludingPool@Base 2:4.9.6~ 1
  libVersionPoint@Base 1.8.0.10
