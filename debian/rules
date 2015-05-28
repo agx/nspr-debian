@@ -27,6 +27,7 @@ ifeq (64,$(shell dpkg-architecture -qDEB_HOST_ARCH_BITS))
 endif
 
 $(call lazy,DEB_HOST_MULTIARCH,$$(shell dpkg-architecture -qDEB_HOST_MULTIARCH))
+$(call lazy,BUILD_DATE,$$(shell dpkg-parsechangelog -S Date))
 
 PREPROCESS_FILES := $(wildcard debian/*.in)
 
@@ -49,6 +50,11 @@ override_dh_auto_configure: $(PREPROCESS_FILES:.in=)
                     $(CONFIGURE_FLAGS) \
 		    --prefix=/usr \
 		    --libdir=/usr/lib/$(DEB_HOST_MULTIARCH)
+
+override_dh_auto_build:
+	$(MAKE) -C nspr \
+		SH_NOW="$(shell TZ=UTC date -d "$(BUILD_DATE)" +%s)" \
+		SH_DATE="$(shell TZ=UTC date -d "$(BUILD_DATE)" "+%Y-%m-%d %T")"
 
 override_dh_auto_clean:
 	dh_auto_clean
