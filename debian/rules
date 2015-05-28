@@ -41,10 +41,11 @@ override_dh_auto_configure: $(PREPROCESS_FILES:.in=)
 		sed -i '2!b;/^#/ i\exec "/usr/share/misc/'$$file'" "$$@"' nspr/build/autoconf/$$file; \
 	done
 
+	cd nspr && \
 	CFLAGS="$(CFLAGS)" \
 	CPPFLAGS="$(CPPFLAGS)" \
 	LDFLAGS="$(LDFLAGS)" \
-	dh_auto_configure -- \
+	./configure --target=$(DEB_HOST_GNU_TYPE) --host=$(DEB_BUILD_GNU_TYPE) --build=$(DEB_BUILD_GNU_TYPE) \
                     $(CONFIGURE_FLAGS) \
 		    --prefix=/usr \
 		    --libdir=/usr/lib/$(DEB_HOST_MULTIARCH)
