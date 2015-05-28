@@ -1,3 +1,18 @@
+nspr (2:4.10.8-2) unstable; urgency=medium
+
+  * debian/rules:
+    - Do not pretend nspr's configure can be run through dh_auto_configure.
+      The architecture flags are different than "standard" autoconf.
+      Closes: #782983.
+    - Use changelog date to feed nspr build system.
+    - Pass --enable-x32 for x32 builds.
+  * debian/libnspr4.symbols:
+    - Updated for x32-specific symbols. Thanks to Daniel Schepler
+      <dschepler@gmail.com>.
+    - Reordered symbols.
+
+ -- Mike Hommey <glandium@debian.org>  Thu, 28 May 2015 15:02:05 +0900
+
 nspr (2:4.10.8-1) unstable; urgency=medium
 
   * New upstream release.
