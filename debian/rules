@@ -56,7 +56,7 @@ override_dh_auto_configure: $(PREPROCESS_FILES:.in=)
 
 override_dh_auto_build:
 	$(MAKE) -C nspr \
-		SH_NOW="$(shell TZ=UTC date -d "$(BUILD_DATE)" +%s)" \
+		SH_NOW="$(shell TZ=UTC date -d "$(BUILD_DATE)" +%s)000000" \
 		SH_DATE="$(shell TZ=UTC date -d "$(BUILD_DATE)" "+%Y-%m-%d %T")"
 
 override_dh_auto_clean:
