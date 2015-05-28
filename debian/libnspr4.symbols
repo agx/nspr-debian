@@ -395,10 +395,10 @@ libnspr4.so libnspr4 (>= 2:4.9-2~) | libnspr4-0d #MINVER#
  SetExecutionEnvironment@Base 1.8.0.10
  _pr_push_ipv6toipv4_layer@Base 1.8.0.10
  _pr_test_ipv6_socket@Base 1.8.0.10
- (arch=amd64 kfreebsd-amd64)_PR_x86_64_AtomicAdd@Base 1.8.0.10
- (arch=amd64 kfreebsd-amd64)_PR_x86_64_AtomicDecrement@Base 1.8.0.10
- (arch=amd64 kfreebsd-amd64)_PR_x86_64_AtomicIncrement@Base 1.8.0.10
- (arch=amd64 kfreebsd-amd64)_PR_x86_64_AtomicSet@Base 1.8.0.10
+ (arch=amd64 kfreebsd-amd64 x32)_PR_x86_64_AtomicAdd@Base 1.8.0.10
+ (arch=amd64 kfreebsd-amd64 x32)_PR_x86_64_AtomicDecrement@Base 1.8.0.10
+ (arch=amd64 kfreebsd-amd64 x32)_PR_x86_64_AtomicIncrement@Base 1.8.0.10
+ (arch=amd64 kfreebsd-amd64 x32)_PR_x86_64_AtomicSet@Base 1.8.0.10
  (arch=i386 kfreebsd-i386 hurd-i386)_PR_x86_AtomicAdd@Base 1.8.0.10
  (arch=i386 kfreebsd-i386 hurd-i386)_PR_x86_AtomicDecrement@Base 1.8.0.10
  (arch=i386 kfreebsd-i386 hurd-i386)_PR_x86_AtomicIncrement@Base 1.8.0.10

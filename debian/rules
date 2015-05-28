@@ -25,6 +25,9 @@ endif
 ifeq (64,$(shell dpkg-architecture -qDEB_HOST_ARCH_BITS))
 	CONFIGURE_FLAGS += --enable-64bit
 endif
+ifeq (x32,$(shell dpkg-architecture -qDEB_HOST_ARCH))
+	CONFIGURE_FLAGS += --enable-x32
+endif
 
 $(call lazy,DEB_HOST_MULTIARCH,$$(shell dpkg-architecture -qDEB_HOST_MULTIARCH))
 $(call lazy,BUILD_DATE,$$(shell dpkg-parsechangelog -S Date))
