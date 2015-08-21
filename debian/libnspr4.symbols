@@ -97,6 +97,7 @@ libnspr4.so libnspr4 (>= 2:4.9-2~) | libnspr4-0d #MINVER#
  PR_DetachSharedMemory@Base 1.8.0.10
  PR_DetachThread@Base 1.8.0.10
  PR_DisableClockInterrupts@Base 1.8.0.10
+ PR_DuplicateEnvironment@Base 2:4.10.9 1
  PR_EmulateAcceptRead@Base 1.8.0.10
  PR_EmulateSendFile@Base 1.8.0.10
  PR_EnableClockInterrupts@Base 1.8.0.10
