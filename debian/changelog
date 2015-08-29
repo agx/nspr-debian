@@ -1,3 +1,10 @@
+nspr (2:4.10.9-2) unstable; urgency=medium
+
+  * nspr/pr/include/md/_linux.cfg: Fix mips64 condition testing, avoiding
+    e.g. wrong types being picked up on mips/mipsel.
+
+ -- Mike Hommey <glandium@debian.org>  Sat, 29 Aug 2015 10:22:50 +0900
+
 nspr (2:4.10.9-1) unstable; urgency=medium
 
   * New upstream release.
