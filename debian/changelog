@@ -1,3 +1,10 @@
+nspr (2:4.10.10-1) unstable; urgency=high
+
+  * New upstream release.
+  * Fixes mfsa-2015-133, aka CVE-2015-7183.
+
+ -- Mike Hommey <glandium@debian.org>  Wed, 04 Nov 2015 08:25:04 +0900
+
 nspr (2:4.10.9-2) unstable; urgency=medium
 
   * nspr/pr/include/md/_linux.cfg: Fix mips64 condition testing, avoiding
