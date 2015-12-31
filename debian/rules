@@ -73,6 +73,13 @@ override_dh_strip:
 override_dh_makeshlibs:
 	dh_makeshlibs -a -- -c4
 
+override_dh_auto_test:
+	$(MAKE) -C nspr/pr/tests
+	$(MAKE) -C nspr/lib/tests
+	cd nspr/pr/tests && ./runtests.sh
+	cd nspr/lib/tests && ./base64t
+	cd nspr/lib/tests && ./string
+
 ifneq (,$(DEB_HOST_MULTIARCH))
 override_dh_gencontrol:
 	dh_gencontrol -- -Vmisc:Multi-Arch=same
