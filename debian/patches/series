@@ -1,1 +1,4 @@
 Use-localhost-for-gethost-test.patch
+Correctly-return-exit-status-on-failure.patch
+Unbreak-d.patch
+server_test-reuse-address.patch
