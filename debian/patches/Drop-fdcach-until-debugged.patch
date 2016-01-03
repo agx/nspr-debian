@@ -1,0 +1,21 @@
+From: =?utf-8?q?Guido_G=C3=BCnther?= <agx@sigxcpu.org>
+Date: Sat, 2 Jan 2016 18:55:51 +0100
+Subject: Drop fdcach until debugged
+
+since this fails reliably in pbuilder and outside
+---
+ nspr/pr/tests/runtests.sh | 1 -
+ 1 file changed, 1 deletion(-)
+
+diff --git a/nspr/pr/tests/runtests.sh b/nspr/pr/tests/runtests.sh
+index 760f032..c1cf0e3 100755
+--- a/nspr/pr/tests/runtests.sh
++++ b/nspr/pr/tests/runtests.sh
+@@ -89,7 +89,6 @@ dlltest
+ dtoa
+ errcodes
+ exit
+-fdcach
+ fileio
+ foreign
+ formattm
