@@ -150,6 +150,7 @@ libnspr4.so libnspr4 (>= 2:4.9-2~) | libnspr4-0d #MINVER#
  PR_GetDirectorySeparator@Base 1.8.0.10
  PR_GetDirectorySepartor@Base 1.8.0.10
  PR_GetEnv@Base 1.8.0.10
+ PR_GetEnvSecure@Base 2:4.12 1
  PR_GetError@Base 1.8.0.10
  PR_GetErrorText@Base 1.8.0.10
  PR_GetErrorTextLength@Base 1.8.0.10
