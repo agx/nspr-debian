@@ -1,3 +1,9 @@
+nspr (2:4.12-2~bpo8) jessie-backports; urgency=medium
+
+  * Backport to jessie and enable internal test suite
+
+ -- Guido Günther <agx@sigxcpu.org>  Fri, 20 May 2016 17:37:53 +0200
+
 nspr (2:4.12-2) unstable; urgency=medium
 
   * debian/rules, debian/libnspr4.triggers. Replace makeshlibs scripts that
