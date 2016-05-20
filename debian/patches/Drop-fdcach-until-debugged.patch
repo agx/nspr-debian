@@ -1,6 +1,6 @@
 From: =?utf-8?q?Guido_G=C3=BCnther?= <agx@sigxcpu.org>
 Date: Sat, 2 Jan 2016 18:55:51 +0100
-Subject: Drop fdcach until debugged
+Subject: Skip fdcach test until debugged
 
 since this fails reliably in pbuilder and outside
 ---
