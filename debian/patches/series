@@ -1,2 +1,3 @@
 Use-localhost-for-gethost-test.patch
 Drop-fdcach-until-debugged.patch
+Fix-vercheck-test.patch
